@@ -1490,6 +1490,12 @@ select {
 
 h1, h2, h3, h4, h5, h6, p {
   text-align: center;
+  color: var(--color1);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 26px;
 }
 
 .welcome {
@@ -1642,6 +1648,7 @@ footer {
 .alert {
   position: fixed;
   left: 50%;
+  top: 0;
   transform: translate(-50%, 0);
   z-index: 1000;
   background-color: #d4edda; /* boja pozadine za success */
@@ -1651,4 +1658,76 @@ footer {
   border-radius: 5px;
   opacity: 1;
   transition: opacity 0.5s ease; /* tranzicija za nestajanje */
+}
+
+.spot-p {
+  font-size: 20px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.reserve-spot-form, .manage-categories {
+  background-color: white;
+  width: 40%;
+  margin: auto;
+  padding: 20px 50px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.manage-categories {
+  margin-top: 20vh;
+}
+
+.categories-form {
+  margin: 20px 0;
+}
+
+.add-button {
+  float: right;
+}
+
+.table {
+  margin: 20px 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.table-striped {
+  /* Osnovna boja za neparne redove */
+  background-color: rgb(0, 255, 213); /* Tamnija crvena */
+}
+
+.table-striped tbody tr:nth-child(even) {
+  /* Svetlija crvena boja za parne redove */
+  background-color: rgb(16, 219, 246); /* Svetlija crvena */
+}
+
+.table th {
+  background-color: var(--color1); /* Boja za zaglavlja */
+  color: white; /* Boja teksta */
+}
+
+.all-users, .your-vehicles {
+  margin-top: 50px;
+}
+
+.create-user, .create-vehicle, .edit-reservation, .edit-user-profile, .edit-vehicle {
+  margin: 10px 0;
+}
+
+.your-vehicles {
+  width: 60%;
+}
+
+.manage-reservations {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.create-users, .edit-profile {
+  width: 50%;
+  margin: 30px auto;
 }

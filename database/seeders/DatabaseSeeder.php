@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(){
         $this->call(AbilitiesSeeder::class);
+        $this->call(ParkingSpotsSeeder::class);
 
         /*
         // Popunjavamo podatke za admina
@@ -52,6 +53,7 @@ class DatabaseSeeder extends Seeder
 
         Bouncer::assign('user')->to($user);
         */
+
     }
 
 }

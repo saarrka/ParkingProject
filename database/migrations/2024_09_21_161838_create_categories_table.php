@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id'); // Primarni ključ
             $table->unsignedBigInteger('user_id'); // Strani ključ za vezu 1:N
             $table->string('vehicle_cat', 120)->nullable(); // Kategorija vozila
-            $table->timestamp('creation_date')->default(now()); // Datum kreiranja
+            $table->timestamps();
 
             // Definisanje stranog ključa
            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

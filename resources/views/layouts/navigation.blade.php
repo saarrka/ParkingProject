@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-gray-100" style="background-color: var(--color1);">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden ">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -23,7 +23,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div style="color:black;">{{ Auth::user()->user_name }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -34,6 +34,50 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- ADMIN -->
+                        @if (Auth::user()->can('manage-users'))
+                            <x-dropdown-link :href="route('users.index')">
+                                {{ __('Manage users') }}
+                            </x-dropdown-link>
+                        @endif
+                        @if (Auth::user()->can('manage-categories'))
+                            <x-dropdown-link :href="route('categories.index')">
+                                {{ __('Manage categories') }}
+                            </x-dropdown-link>
+                        @endif
+                        @if (Auth::user()->can('manage-vehicles'))
+                            <x-dropdown-link :href="route('admins.view-vehicles')">
+                                {{ __('Manage vehicles') }}
+                            </x-dropdown-link>
+                        @endif
+
+                        <!-- MANAGER -->
+                        @if (Auth::user()->can('view-users'))
+                            <x-dropdown-link :href="route('managers.view-users')">
+                                {{ __('View users') }}
+                            </x-dropdown-link>
+                        @endif
+                        @if (Auth::user()->can('edit-profile'))
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Edit profile') }}
+                            </x-dropdown-link>
+                        @endif
+
+                        <!-- USER -->
+                        @if (Auth::user()->can('manage-own-vehicles'))
+                            <x-dropdown-link :href="route('vehicles.index')">
+                                {{ __('Your vehicles') }}
+                            </x-dropdown-link>
+                        @endif
+                        @if (Auth::user()->can('manage-own-reservations'))
+                            <x-dropdown-link :href="route('users.reserve-parking')">
+                                {{ __('Reserve Parking') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('reservations.index')">
+                                {{ __('Your reservations') }}
+                            </x-dropdown-link>
+                        @endif
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

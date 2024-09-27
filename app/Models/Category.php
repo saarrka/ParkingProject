@@ -10,9 +10,8 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'vehicle_cat', // Kategorija vozila
-        'user_id',     // ID korisnika koji je kreirao kategoriju
-        'creation_date', // Datum kreiranja
+        'vehicle_cat',
+        'user_id' 
     ];
 
     // Definisanje veze sa korisnikom
