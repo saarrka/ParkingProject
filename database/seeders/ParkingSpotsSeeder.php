@@ -14,8 +14,7 @@ class ParkingSpotsSeeder extends Seeder
      */
     public function run()
     {
-        // Kreiraj 150 slobodnih parking mesta
-        /*
+        // Kreiramo 150 slobodnih parking mesta
         for ($i = 1; $i <= 150; $i++) {
             ParkingSpot::create([
                 'spot_number' => $i,
@@ -23,6 +22,6 @@ class ParkingSpotsSeeder extends Seeder
                 'user_id' => null, // Niko nije rezervisao
             ]);
         }
-            */
+    
     }
 }
